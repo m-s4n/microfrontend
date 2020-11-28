@@ -6,7 +6,13 @@ const ContainerRouter = () => {
   return (
     <Switch>
       <Route exact path="/" component={() => {
-          return <MarketingApp />;
+          return (
+            <div>
+               Merhab
+               <hr></hr>
+               <MarketingApp />
+            </div>
+          )
       }} />
     </Switch>
   );
