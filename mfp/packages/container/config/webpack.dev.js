@@ -1,5 +1,4 @@
 const {merge} = require('webpack-merge'); // iki farklı web config birleştirmesi için kullanılır.
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const commonConfig = require('./webpack.common');
 // required from container
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
@@ -14,9 +13,6 @@ const devConfig = {
         }
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: './public/index.html'
-        }),
         new ModuleFederationPlugin({
             name: 'container',
             remotes: {
