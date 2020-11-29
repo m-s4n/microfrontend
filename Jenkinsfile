@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Build Starts!'
-                sh "cd '/mfp/packages/container'"
+                sh "cd './mfp/packages/container'"
                 sh 'npm install'
                 echo 'Build Ends'
             }
