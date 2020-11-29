@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Build Starts!'
-                bat "cd './mfp/packages/container'"
+                bat "cd '/mfp/packages/container'"
                 echo 'Build Ends'
             }
         }
