@@ -20,7 +20,7 @@ pipeline {
 		stage('Deploy') {
             steps {
                 echo 'Deploy Starts!'
-                bat "cd ${workspace}/mfp/packages && move container C:\Users\Seymen\Desktop\deploy
+                bat "cd ${workspace}/mfp/packages/container && move container C:\Users\Seymen\Desktop\deploy"
                 echo 'Deploy Ends'
             }
         }		
