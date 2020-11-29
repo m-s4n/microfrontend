@@ -2,18 +2,20 @@ const {merge} = require('webpack-merge'); // iki farklı web config birleştirme
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const commonConfig = require('./webpack.common');
 const packageJson = require('../package.json');
-const domain = process.env.PRODUCTION_DOMAIN;  // production'ın nerede olacağını içerecek.
+//const domain = process.env.PRODUCTION_DOMAIN;  // production'ın nerede olacağını içerecek.
+const domain = 'http://localhost:5556';
 
 const prodConfig = {
     mode: 'production',
     output: {
-        filename: '[name].[contenthash].js' // adlandırma şablonu
+        filename: '[name].[contenthash].js', // adlandırma şablonu
+        publicPath: '/container/latest/' // main file'a erişilecek path '/container/latest/main.js'
     },
     plugins: [
         new ModuleFederationPlugin({
             name: 'container',
             remotes: {
-                marketing: `marketing@${domain}/marketing/remoteEntry.js` // deploy edince burada barınacak.
+                marketing: `marketing@${domain}/marketing/latest/remoteEntry.js` // deploy edince burada barınacak.
             },
             shared: packageJson.dependencies
         })
