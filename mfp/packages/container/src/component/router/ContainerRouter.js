@@ -1,20 +1,13 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
-import MarketingApp from '../pages/MarketingApp';
+import MarketingApp from "../pages/MarketingApp";
+import Header from "../pages/Header";
 
 const ContainerRouter = () => {
   return (
-    <Switch>
-      <Route exact path="/" component={() => {
-          return (
-            <div>
-               Merhaba
-               <hr></hr>
-               <MarketingApp />
-            </div>
-          )
-      }} />
-    </Switch>
+    <div>
+      <Header />
+      <MarketingApp />
+    </div>
   );
 };
 
