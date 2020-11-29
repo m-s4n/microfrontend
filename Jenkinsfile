@@ -4,8 +4,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Build Starts!'
-                sh "cd './mfp/packages/container'"
-                sh 'npm install'
                 echo 'Build Ends'
             }
         }
@@ -20,8 +18,6 @@ pipeline {
 		stage('Deploy') {
             steps {
                 echo 'Deploy Starts!'
-                sh 'cd ./mfp/packages/marketing'
-                sh 'npm run build'
                 echo 'Deploy Ends'
             }
         }		
