@@ -8,7 +8,7 @@ const ContainerRouter = () => {
       <Route exact path="/" component={() => {
           return (
             <div>
-               Merhab
+               Merhaba
                <hr></hr>
                <MarketingApp />
             </div>
