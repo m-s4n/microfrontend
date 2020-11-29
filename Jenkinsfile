@@ -5,6 +5,7 @@ pipeline {
             steps {
                 echo 'Build Starts!'
                 bat "cd ${workspace}/mfp/packages/container"
+                bat "npm install"
                 echo 'Build Ends'
             }
         }
