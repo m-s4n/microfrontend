@@ -11,7 +11,7 @@ const prodConfig = {
     output: {
         filename: '[name].[contenthash].js', // adlandırma şablonu
         publicPath: '/container/latest/', // main file'a erişilecek path '/container/latest/main.js'
-        path: path.resolve(__dirname,'../marketing/v1/')
+        path: path.resolve(__dirname,'../container/v1/')
     },
     plugins: [
         new ModuleFederationPlugin({
