@@ -6,8 +6,9 @@ import {createMemoryHistory, createBrowserHistory} from 'history';
 import { StylesProvider } from "@material-ui/core/styles";
 
 // mount function to start up the app
-const mount = (htmlEl, {onNavigate, defaultHistory, initialPath}) => {
+const mount = (htmlEl, {onNavigate, defaultHistory, initialPath, onSignIn}) => {
   const history = defaultHistory || createMemoryHistory({
+    // Başlangıç pathleri veriliyor
     initialEntries: [initialPath]
   });
   // Ne zaman navigation olursa işlevi çağıracağız
@@ -19,7 +20,7 @@ const mount = (htmlEl, {onNavigate, defaultHistory, initialPath}) => {
   ReactDOM.render(
     <StylesProvider>
       <Router history={history} >
-        <App />
+        <App onSignIn={onSignIn} />
       </Router>
     </StylesProvider>,
     htmlEl
@@ -40,7 +41,7 @@ const mount = (htmlEl, {onNavigate, defaultHistory, initialPath}) => {
 
 // if we are in development and isolation
 if (process.env.NODE_ENV === "development") {
-  const htmlEl = document.querySelector("#marketing-dev-root");
+  const htmlEl = document.querySelector("#auth-dev-root");
   if (htmlEl) {
     mount(htmlEl,{defaultHistory: createBrowserHistory()});
   }

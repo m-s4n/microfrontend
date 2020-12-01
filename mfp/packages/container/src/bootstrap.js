@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter} from 'react-router-dom';
+import {Router} from 'react-router-dom';
+import {createBrowserHistory} from 'history';
 import App from './App';
+const history = createBrowserHistory();
 
-ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.querySelector('#root'));
+ReactDOM.render(<Router history={history} ><App /></Router>, document.querySelector('#root'));
 
 // Container da direkt bunu yaptık her zaman container kendisini gösterecek.

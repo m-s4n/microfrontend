@@ -8,15 +8,15 @@ const prodConfig = {
     mode: 'production',
     output: {
         filename: '[name].[contenthash].js', // adlandırma şablonu
-        publicPath: '/marketing/v1/',
-        path: path.resolve(__dirname,'../marketing/v1/')
+        publicPath: '/dashboard/v1/',
+        path: path.resolve(__dirname,'../dashboard/v1/')
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'marketing',
+            name: 'dashboard',
             filename: 'remoteEntry.js',
             exposes: {
-                './MarketingApp': './src/bootstrap'
+                './DashboardApp': './src/bootstrap'
             },
             shared: packageJson.dependencies
         })

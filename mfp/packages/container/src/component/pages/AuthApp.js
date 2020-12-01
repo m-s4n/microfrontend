@@ -1,20 +1,15 @@
-import {mount} from 'marketing/MarketingApp';
+import {mount} from 'auth/AuthApp';
 import React, {useRef, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 
-const MarketingApp = () => {
+const AuthApp = ({onSignIn}) => {
     const ref = useRef(null);
     //Container daki browser history nin bir kopyası.
     const history = useHistory();
     // Kodun birkez çalıştığından emin olmalıyız.
-
-    /*useEffect(() => {
-        mount(ref.current);
-    },[]);*/
-
     useEffect(() => {
         const {onParentNavigate} = mount(ref.current, {
-            initialPath: history.location.pathname, 
+            initialPath:  history.location.pathname,
             onNavigate: ({pathname: nextPathname}) => {
                 const {pathname} = history.location;
                 if(pathname !== nextPathname){
@@ -22,6 +17,10 @@ const MarketingApp = () => {
                     history.push(nextPathname);
                 }
                 
+            },
+            onSignIn : () => {
+                onSignIn();
+                console.log('basti');
             }
         });
         history.listen(onParentNavigate)
@@ -30,5 +29,5 @@ const MarketingApp = () => {
 
 };
 
-export default MarketingApp;
+export default AuthApp;
 
